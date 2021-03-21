@@ -1,0 +1,13 @@
+<% flash.each do |name, message| %>
+    <%= message %>
+<% end %>    
+
+
+<%= form_with url: "/login" do |form| %>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %><br>
+
+    <%= form.submit "Log in" %>
+<% end %>
+
+<%= link_to "Register", register_path %>

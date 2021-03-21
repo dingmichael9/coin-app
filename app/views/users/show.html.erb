@@ -1,0 +1,12 @@
+<% flash.each do |name, message| %>
+    <%= message %>
+<% end %>
+
+<h1><%= @current_user.username %>'s page</h1>
+
+<div>
+    Balance: <%= number_to_currency(@current_user.balance) %>
+</div>    
+
+
+<%= link_to "Logout", logout_path, :method => "delete" %>

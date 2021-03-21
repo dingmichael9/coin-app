@@ -1,0 +1,13 @@
+<% flash.each do |name, message| %>
+    <%= message %>
+<% end %>
+
+<h1>Create a new user</h1>
+
+<%= form_with url: "/register" do |form| %>
+    <%= form.text_field :username %>
+    <%= form.submit "Create new user" %>
+<% end %>
+
+
+<%= link_to "Log In", login_path %>
