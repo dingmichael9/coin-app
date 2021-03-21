@@ -5,5 +5,5 @@ class Transaction < ApplicationRecord
     validates :amount, numericality: true
     validates :sender_id, presence: true
     validates :receiver_id, presence: true
-    validates :approved, presence: true
+    validates :approved, inclusion: {in: [ true, false ]}
 end

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/register", to: "users#new"
   post "/register", to: "users#create"
+
   root "users#show"
 
   resources :users, only: [:index]
-  resources :sessions
+  resources :transactions
 end

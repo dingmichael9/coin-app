@@ -1,0 +1,14 @@
+<h1>Pending</h1>
+<% @unapproved_transactions.each do |transaction| %>
+    <%= transaction.sender.username %>
+    <%= transaction.receiver.username %>
+    <%= number_to_currency(transaction.amount) %>
+    <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch %> <br>
+<% end %>
+
+<h1>Past</h1>
+<% @approved_transactions.each do |transaction| %>
+    <%= transaction.sender.username %>
+    <%= transaction.receiver.username %>
+    <%= number_to_currency(transaction.amount) %><br>
+<% end %>
