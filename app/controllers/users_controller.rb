@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             session[:username] = @user.username
             redirect_to root_path
         else
-            flash[:error] = "Invalid registration"
+            flash.now[:error] = "Invalid registration"
             render :new
         end
     end

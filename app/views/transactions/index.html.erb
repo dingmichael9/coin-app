@@ -3,7 +3,10 @@
     <%= transaction.sender.username %>
     <%= transaction.receiver.username %>
     <%= number_to_currency(transaction.amount) %>
-    <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch %> <br>
+
+    <% if transaction.sender.username == @current_user.username %>
+        <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch %> <br>
+    <% end %>
 <% end %>
 
 <h1>Past</h1>
@@ -12,3 +15,9 @@
     <%= transaction.receiver.username %>
     <%= number_to_currency(transaction.amount) %><br>
 <% end %>
+
+<br>
+
+<%= link_to "Balance", root_path %>
+
+<%= link_to "New Transaction", new_transaction_path %>

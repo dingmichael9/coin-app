@@ -1,0 +1,22 @@
+<% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+<% end %>
+
+<h1>New Transaction page</h1>
+
+<%= form_with model: @transaction do |form| %>
+    <%= form.label :target_username %><br>
+    <%= form.text_field :target_username %><br>
+
+    <%= form.label :amount %><br>
+    <%= form.text_field :amount %><br>
+
+    <%= form.submit 'Send' %>
+    <%= form.submit 'Request' %>
+<% end %>    
+
+<br>
+
+<%= link_to "Balance", root_path %>
+
+<%= link_to "Transaction History", transactions_path %>

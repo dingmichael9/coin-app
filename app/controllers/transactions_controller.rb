@@ -4,7 +4,44 @@ class TransactionsController < ApplicationController
         @current_user = User.find_by_username(session[:username])
 
         @approved_transactions = Transaction.all.where(approved: true, sender_id: @current_user.id).or(Transaction.all.where(approved: true, receiver_id: @current_user.id))
-        @unapproved_transactions = Transaction.all.where(approved: false, sender_id: @current_user.id)
+        @unapproved_transactions = Transaction.all.where(approved: false, sender_id: @current_user.id).or(Transaction.all.where(approved: false, receiver_id: @current_user.id))
+    end
+
+    def new
+        @transaction = Transaction.new
+    end
+
+    def create 
+        @transaction = Transaction.new
+
+        if params[:transaction][:target_username] == session[:username]
+            flash[:error] = "You made a mistake"
+            render :new
+            return
+        elsif params[:commit] == "Send"
+            @sender = User.find_by_username(session[:username])
+            @receiver = User.find_by_username(params[:transaction][:target_username]) if User.find_by_username(params[:transaction][:target_username])
+            @approved = true
+        elsif params[:commit] == "Request"
+            @sender = User.find_by_username(params[:transaction][:target_username]) if User.find_by_username(params[:transaction][:target_username])
+            @receiver = User.find_by_username(session[:username])
+            @approved = false
+        end
+        
+        @transaction.sender_id = @sender.id if @sender
+        @transaction.receiver_id = @receiver.id if @receiver
+        @transaction.amount = params[:transaction][:amount]
+        @transaction.approved = @approved
+
+        if @transaction.save
+            if @transaction.approved
+                update_balances(@sender, @receiver, @transaction.amount)
+            end
+            redirect_to root_path
+        else
+            flash[:error] = "You made a mistake"
+            render :new
+        end
     end
 
     def update

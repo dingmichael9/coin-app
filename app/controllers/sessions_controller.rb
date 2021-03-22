@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             session[:username] = @user.username
             redirect_to root_path
         else
-            flash[:error] = "Invalid login"
+            flash.now[:error] = "Invalid login"
             render :new
         end
     end

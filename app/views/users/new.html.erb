@@ -2,8 +2,6 @@
     <%= message %>
 <% end %>
 
-<h1>Create a new user</h1>
-
 <%= form_with url: "/register" do |form| %>
     <%= form.text_field :username %>
     <%= form.submit "Create new user" %>
