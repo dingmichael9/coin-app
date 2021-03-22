@@ -1,5 +1,11 @@
 <% flash.each do |name, message| %>
-    <div class="<%= name %>"><%= message %></div>
+    <%= message %>
+<% end %>   
+
+<% if @transaction.errors.any? %>
+    <% @transaction.errors.each do |error| %>
+        <div><%= error.full_message %></div>
+    <% end %>
 <% end %>
 
 <h1>New Transaction page</h1>
@@ -9,7 +15,7 @@
     <%= form.text_field :target_username %><br>
 
     <%= form.label :amount %><br>
-    <%= form.text_field :amount %><br>
+    <%= form.number_field :amount, step: 0.01 %><br>
 
     <%= form.submit 'Send' %>
     <%= form.submit 'Request' %>

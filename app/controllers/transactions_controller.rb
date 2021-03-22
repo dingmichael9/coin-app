@@ -2,7 +2,6 @@ class TransactionsController < ApplicationController
 
     def index
         @current_user = User.find_by_username(session[:username])
-
         @approved_transactions = Transaction.all.where(approved: true, sender_id: @current_user.id).or(Transaction.all.where(approved: true, receiver_id: @current_user.id))
         @unapproved_transactions = Transaction.all.where(approved: false, sender_id: @current_user.id).or(Transaction.all.where(approved: false, receiver_id: @current_user.id))
     end
@@ -15,7 +14,11 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.new
 
         if params[:transaction][:target_username] == session[:username]
-            flash[:error] = "You made a mistake"
+            flash.now[:error] = "You can't transfer money to yourself"
+            render :new
+            return
+        elsif params[:transaction][:target_username] == ""
+            flash.now[:error] = "You must enter a recepient"
             render :new
             return
         elsif params[:commit] == "Send"
@@ -28,18 +31,21 @@ class TransactionsController < ApplicationController
             @approved = false
         end
         
-        @transaction.sender_id = @sender.id if @sender
-        @transaction.receiver_id = @receiver.id if @receiver
+        @transaction.sender_id = @sender ? @sender.id : -1
+        @transaction.receiver_id = @receiver ? @receiver.id : -1
         @transaction.amount = params[:transaction][:amount]
         @transaction.approved = @approved
+
+        puts params[:transaction][:amount]
 
         if @transaction.save
             if @transaction.approved
                 update_balances(@sender, @receiver, @transaction.amount)
+                puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+                puts @transaction.amount
             end
             redirect_to root_path
         else
-            flash[:error] = "You made a mistake"
             render :new
         end
     end

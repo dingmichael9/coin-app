@@ -9,11 +9,14 @@ class SessionsController < ApplicationController
         @user = User.find_by_username(params[:username])
 
         if @user
-            flash[:success] = "Logged in"
             session[:username] = @user.username
             redirect_to root_path
         else
-            flash.now[:error] = "Invalid login"
+            if params[:username] == ""
+                flash.now[:error] = "You must enter a username"
+            else
+                flash.now[:error] = "User doesn't exist"
+            end
             render :new
         end
     end
@@ -22,5 +25,4 @@ class SessionsController < ApplicationController
         session[:username] = nil
         redirect_to login_path
     end
-
 end

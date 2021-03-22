@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_193441) do
   create_table "transactions", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
-    t.integer "amount"
+    t.decimal "amount", precision: 15, scale: 2
     t.boolean "approved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
