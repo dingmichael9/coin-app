@@ -1,13 +1,21 @@
-<% if @user.errors.any? %>
-    <%= @user.errors[:username][0] %>
-<% end %>    
+<% flash.each do |name, message| %>
+    <div class=<%= name %>>
+        <%= message %>
+    </div>
+<% end %>   
 
-<%= form_with url: "/register" do |form| %>
-    <%= form.text_field :username %>
-    <%= form.submit "Create new user" %>
-<% end %>
+<div class="root_container">
 
+    <div class="root_body">
+        <%= image_tag "coin.png", class:"logo" %>
 
+        <%= form_with url: "/register", class: "root_form_area" do |form| %>
+            <%= form.text_field :username, class:"username_input" %>
 
+            <%= form.submit "Create user", class:"login_register" %>
+        <% end %>        
+    </div>
+    
+    <%= link_to "Log In", login_path, class:"switch_login_register" %>
 
-<%= link_to "Log In", login_path %>
+</div>

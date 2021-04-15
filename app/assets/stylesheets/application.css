@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Flash Message */
+.error {
+    background-color: #F63E1D;
+    color: white;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success {
+    background-color: #01BBF8;
+    color: white;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

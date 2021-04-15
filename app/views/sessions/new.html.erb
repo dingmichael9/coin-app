@@ -1,22 +1,21 @@
 <% flash.each do |name, message| %>
-    <div class="alert">
+    <div class=<%= name %>>
         <%= message %>
     </div>
 <% end %>    
 
+<div class="root_container">
 
-<div class="container">
-
-    <div class="main_body">
+    <div class="root_body">
         <%= image_tag "coin.png", class:"logo" %>
 
-        <%= form_with url: "/login", class: "form_area" do |form|  %>
+        <%= form_with url: "/login", class: "root_form_area" do |form|  %>
             <%= form.text_field :username, class:"username_input" %>
 
-            <%= form.submit "Log in", class:"login" %>
+            <%= form.submit "Log in", class:"login_register" %>
         <% end %>
     </div>
 
-    <%= link_to "Register", register_path, class:"register" %>
+    <%= link_to "Register", register_path, class:"switch_login_register" %>
 
 </div>

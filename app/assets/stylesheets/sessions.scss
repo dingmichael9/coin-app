@@ -7,20 +7,8 @@ body {
     font-family: arial; 
 }
 
-// Flash message
-.alert {
-    background-color: #F63E1D;
-    color: white;
-    position: fixed;
-    height: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 // Main Body
-.container {
+.root_container {
     height: 100vh;
     width: 300px;
     display: flex;
@@ -30,7 +18,7 @@ body {
     align-items: center;    
 }
 
-.main_body {
+.root_body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,7 +31,7 @@ body {
     margin-bottom: 50px;
 }
 
-.form_area {
+.root_form_area {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -61,7 +49,7 @@ body {
     color: white;
 }
 
-.login {
+.login_register {
     margin-top: 30px;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -74,7 +62,7 @@ body {
     font-size: 18px;    
 }
 
-.register {
+.switch_login_register {
     margin-bottom: 10px;
     color: white;
     text-decoration: none;
