@@ -2,14 +2,6 @@
     <%= message %>
 <% end %>   
 
-<% if @transaction.errors.any? %>
-    <% @transaction.errors.each do |error| %>
-        <div><%= error.full_message %></div>
-    <% end %>
-<% end %>
-
-<h1>New Transaction page</h1>
-
 <%= form_with model: @transaction do |form| %>
     <%= form.label :target_username %><br>
     <%= form.text_field :target_username %><br>

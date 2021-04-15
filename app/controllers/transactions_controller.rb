@@ -12,16 +12,22 @@ class TransactionsController < ApplicationController
 
     def create 
         @transaction = Transaction.new
-
+        
         if params[:transaction][:target_username] == session[:username]
             flash.now[:error] = "You can't transfer money to yourself"
             render :new
             return
         elsif params[:transaction][:target_username] == ""
-            flash.now[:error] = "You must enter a recepient"
+            flash.now[:error] = "You must enter a username"
             render :new
             return
-        elsif params[:commit] == "Send"
+        elsif params[:commit] == "Send" && User.find_by_username(session[:username]).balance < params[:transaction][:amount].to_f
+            flash.now[:error] = "You can't send more than you have"
+            render :new
+            return
+        end
+
+        if params[:commit] == "Send"
             @sender = User.find_by_username(session[:username])
             @receiver = User.find_by_username(params[:transaction][:target_username]) if User.find_by_username(params[:transaction][:target_username])
             @approved = true
@@ -36,16 +42,13 @@ class TransactionsController < ApplicationController
         @transaction.amount = params[:transaction][:amount]
         @transaction.approved = @approved
 
-        puts params[:transaction][:amount]
-
         if @transaction.save
             if @transaction.approved
                 update_balances(@sender, @receiver, @transaction.amount)
-                puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                puts @transaction.amount
             end
             redirect_to root_path
         else
+            flash.now[:error] = @transaction.errors.full_messages[0]
             render :new
         end
     end
