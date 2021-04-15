@@ -2,3 +2,82 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body {
+    background-color: #2EB234;   
+    font-family: arial; 
+}
+
+// Flash message
+.alert {
+    background-color: #F63E1D;
+    color: white;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Main Body
+.container {
+    height: 100vh;
+    width: 300px;
+    display: flex;
+    flex-direction: column;    
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.main_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 200px;
+    width: 200px;
+    margin-top: 10vh;
+    margin-bottom: 50px;
+}
+
+.form_area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.username_input {
+    width: 220px;    
+    background-color: #2EB234;
+    border: 0px;
+    border-bottom: 2px solid white;
+    outline-width: 0;        
+    text-align: center;
+    font-size: 24px;
+    color: white;
+}
+
+.login {
+    margin-top: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 150px;
+    background-color: #2EB234;    
+    border: 2px solid white;
+    border-radius: 7px;
+    color: white;    
+    font-family: inherit;
+    font-size: 18px;    
+}
+
+.register {
+    margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+}
+
