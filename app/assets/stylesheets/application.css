@@ -16,23 +16,37 @@
 
  /* Flash Message */
 .error {
-    background-color: #F63E1D;
-    color: white;
+    background-color: #F2DEDD;
+    color: #b22e2b;
     position: fixed;
-    height: 30px;
-    width: 100%;
+    top: 15px;
+    left: 0;
+    right: 0;
+    width: 270px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 7px;
+    border: solid 1px #b22e2b;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
 }
 
 .success {
-    background-color: #01BBF8;
-    color: white;
+    background-color: #DAECF7;
+    color: #42a5c9;
     position: fixed;
-    height: 30px;
-    width: 100%;
+    top: 15px;
+    left: 0;
+    right: 0;
+    width: 270px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 7px;
+    border: solid 1px #42a5c9;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
 }

@@ -14,7 +14,7 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.new
         
         if params[:transaction][:target_username] == session[:username]
-            flash.now[:error] = "You can't transfer money to yourself"
+            flash.now[:error] = "Can't transfer to yourself"
             render :new
             return
         elsif params[:transaction][:target_username] == ""
@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
             render :new
             return
         elsif params[:commit] == "Send" && User.find_by_username(session[:username]).balance < params[:transaction][:amount].to_f
-            flash.now[:error] = "You can't send more than you have"
+            flash.now[:error] = "You don't have enough funds"
             render :new
             return
         end

@@ -1,5 +1,7 @@
 <% flash.each do |name, message| %>
-    <%= message %>
+    <div class=<%= name %>>
+        <%= message %>
+    </div>
 <% end %>   
 
 <%= form_with model: @transaction do |form| %>
