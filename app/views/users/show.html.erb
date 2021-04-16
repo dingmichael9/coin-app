@@ -4,24 +4,32 @@
     </div>
 <% end %>
 
-<div class="username">
-    <%= @current_user.username %>
+<div class="user_container">
+
+    <div class="user_body">
+        <div class="username">
+            <%= @current_user.username %>
+        </div>
+
+        <div class="current_balance">
+            <%= number_to_currency(@current_user.balance) %>
+        </div>
+
+        <div class="current_balance_label">Balance</div>
+
+        <%= link_to "Hax: Add $10", user_path(@current_user), method: :patch, class:"hax" %>
+    </div>
+
+    <%= link_to "Logout", logout_path, :method => "delete", class:"logout" %>
+
 </div>
 
-<div class="current_balance">
-    <%= number_to_currency(@current_user.balance) %>
+<div class="side_nav">
+    <%= link_to transactions_path do %>
+        <%= image_tag "time.png", class:"history"%>
+    <% end %>
+
+    <%= link_to new_transaction_path do %>
+        <%= image_tag "piggy-bank.png", class:"new_transaction" %>
+    <% end %>
 </div>
-
-<div class="current_balance_label">
-    Balance
-</div>
-
-<%= link_to "Transaction History", transactions_path %>
-<%= link_to "New Transaction", new_transaction_path %>
-
-<br>
-<br>
-
-<%= link_to "Hax: +$10", user_path(@current_user), method: :patch %>
-
-<%= link_to "Logout", logout_path, :method => "delete" %>
