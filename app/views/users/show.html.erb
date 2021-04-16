@@ -1,20 +1,27 @@
 <% flash.each do |name, message| %>
-    <%= message %>
+    <div class=<%= name %>>
+        <%= message %>
+    </div>
 <% end %>
 
-<h1><%= @current_user.username %>'s page</h1>
+<div class="username">
+    <%= @current_user.username %>
+</div>
 
-<div>
-    Balance: <%= number_to_currency(@current_user.balance) %>
-</div>    
+<div class="current_balance">
+    <%= number_to_currency(@current_user.balance) %>
+</div>
 
-
-<br>
+<div class="current_balance_label">
+    Balance
+</div>
 
 <%= link_to "Transaction History", transactions_path %>
 <%= link_to "New Transaction", new_transaction_path %>
 
 <br>
 <br>
+
+<%= link_to "Hax: +$10", user_path(@current_user), method: :patch %>
 
 <%= link_to "Logout", logout_path, :method => "delete" %>

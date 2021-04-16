@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: [:new, :create]
+    skip_before_action :require_login, only: [:new, :create, :update]
     before_action :already_logged_in, only: [:new, :create]
     
     def show
@@ -21,5 +21,11 @@ class UsersController < ApplicationController
             flash.now[:error] = @user.errors[:username][0]
             render :new
         end
+    end
+
+    def update
+        @current_user = User.find(params[:id])
+        @current_user.update(balance: @current_user.balance + 10)                
+        redirect_to root_path
     end
 end
