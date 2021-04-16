@@ -1,23 +1,54 @@
-<h1>Pending</h1>
-<% @unapproved_transactions.each do |transaction| %>
-    <%= transaction.sender.username %>
-    <%= transaction.receiver.username %>
-    <%= number_to_currency(transaction.amount) %>
+<% flash.each do |name, message| %>
+    <div class=<%= name %>>
+        <%= message %>
+    </div>
+<% end %>
 
-    <% if transaction.sender.username == @current_user.username %>
-        <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch %> <br>
+<div class="transaction_history_container">
+    <div class="pending_body">
+
+        <div class="pending_label">Pending</div>
+
+        <% @unapproved_transactions.each do |transaction| %>
+            <div class="test">
+                <div>
+                    <%= transaction.sender.username %>
+                    <%= transaction.receiver.username %>
+                </div>
+                <div>
+                    <%= number_to_currency(transaction.amount) %>
+                </div>
+                <div>
+                    <% if transaction.sender.username == @current_user.username %>
+                        <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch %>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="past_body">
+        <div class="past_label">Past</div>
+        <% @approved_transactions.each do |transaction| %>
+            <div class="test">
+                <div>
+                    <%= transaction.sender.username %>
+                    <%= transaction.receiver.username %>
+                </div>
+                <div>
+                    <%= number_to_currency(transaction.amount) %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="side_nav">
+    <%= link_to root_path do %>
+        <%= image_tag "user.png", class:"nav_top"%>
     <% end %>
-<% end %>
 
-<h1>Past</h1>
-<% @approved_transactions.each do |transaction| %>
-    <%= transaction.sender.username %>
-    <%= transaction.receiver.username %>
-    <%= number_to_currency(transaction.amount) %><br>
-<% end %>
-
-<br>
-
-<%= link_to "Balance", root_path %>
-
-<%= link_to "New Transaction", new_transaction_path %>
+    <%= link_to new_transaction_path do %>
+        <%= image_tag "piggy-bank.png", class:"nav_bottom" %>
+    <% end %>
+</div>

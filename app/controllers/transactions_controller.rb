@@ -55,9 +55,18 @@ class TransactionsController < ApplicationController
 
     def update
         @transaction = Transaction.find(params[:id])
-        @transaction.update(approved: true)        
-        update_balances(User.find(@transaction.sender_id), User.find(@transaction.receiver_id), @transaction.amount)
-        redirect_to root_path
+
+        if @transaction.amount <= User.find(@transaction.sender_id).balance
+            @transaction.update(approved: true)        
+            update_balances(User.find(@transaction.sender_id), User.find(@transaction.receiver_id), @transaction.amount)
+            redirect_to root_path
+        else
+            @current_user = User.find_by_username(session[:username])
+            @approved_transactions = Transaction.all.where(approved: true, sender_id: @current_user.id).or(Transaction.all.where(approved: true, receiver_id: @current_user.id))
+            @unapproved_transactions = Transaction.all.where(approved: false, sender_id: @current_user.id).or(Transaction.all.where(approved: false, receiver_id: @current_user.id))
+            flash.now[:error] = "You don't have enough funds"
+            render :index
+        end
     end
 
     private
