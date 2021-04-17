@@ -6,41 +6,72 @@
 .transaction_history_container {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 430px;
     margin: auto;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
-    // background-color: red;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .pending_label {
     color: white;
-    font-size: 32px;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .past_label {
     color: white;
-    font-size: 32px;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
-.pending_body {
+.pending_body {    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 300px;
+    width: 414px;
+    margin-bottom: 30px;
+    margin-top: 125px;
+    margin-left: 28px;
 }
 
 .past_body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 300px;
+    width: 320px;
+    margin-left: 28px;
 }
 
-.test {
+.transaction_row {
     display: flex;
-    width: 300px;
-    background-color: khaki;
+    width: 100%;
     justify-content: space-between;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 13px;
+}
+
+.approve {
+    text-decoration: none;
+    color: white;
+    border: solid 2px white;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    margin-left: 15px;
+}
+
+.pending_right {
+    display: flex;
+    align-items: center;
+}
+
+.placeholder {
+    display: inline-block;
+    height: 10px;
+    width: 95px;
 }

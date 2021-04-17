@@ -10,17 +10,25 @@
         <div class="pending_label">Pending</div>
 
         <% @unapproved_transactions.each do |transaction| %>
-            <div class="test">
-                <div>
-                    <%= transaction.sender.username %>
-                    <%= transaction.receiver.username %>
-                </div>
-                <div>
-                    <%= number_to_currency(transaction.amount) %>
-                </div>
+            <div class="transaction_row">
                 <div>
                     <% if transaction.sender.username == @current_user.username %>
-                        <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch %>
+                        <%= transaction.receiver.username %>
+                    <% else %>
+                        <%= transaction.sender.username %>
+                    <% end %>                    
+                </div>
+                <div class="pending_right">
+                    <% if transaction.sender.username == @current_user.username %>
+                        -<%= number_to_currency(transaction.amount) %>
+                    <% else %>
+                       <%= number_to_currency(transaction.amount) %>
+                    <% end %>
+
+                    <% if transaction.sender.username == @current_user.username %>
+                        <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch, class:"approve" %>
+                    <% else %>
+                        <div class="placeholder"></div>
                     <% end %>
                 </div>
             </div>
@@ -30,13 +38,20 @@
     <div class="past_body">
         <div class="past_label">Past</div>
         <% @approved_transactions.each do |transaction| %>
-            <div class="test">
+            <div class="transaction_row">
                 <div>
-                    <%= transaction.sender.username %>
-                    <%= transaction.receiver.username %>
+                    <% if transaction.sender.username == @current_user.username %>
+                        <%= transaction.receiver.username %>
+                    <% else %>
+                        <%= transaction.sender.username %>
+                    <% end %>
                 </div>
                 <div>
-                    <%= number_to_currency(transaction.amount) %>
+                    <% if transaction.sender.username == @current_user.username %>
+                        -<%= number_to_currency(transaction.amount) %>
+                    <% else %>
+                        <%= number_to_currency(transaction.amount) %>
+                    <% end %>                    
                 </div>
             </div>
         <% end %>
