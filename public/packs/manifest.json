@@ -10,6 +10,14 @@
         "/packs/js/application-f826770d917d8a37c1d8.js.map"
       ]
     },
+    "new_session": {
+      "js": [
+        "/packs/js/new_session-f792b4e06a9af5a23cd3.js"
+      ],
+      "js.map": [
+        "/packs/js/new_session-f792b4e06a9af5a23cd3.js.map"
+      ]
+    },
     "new_transaction": {
       "js": [
         "/packs/js/new_transaction-a10625c6f836c9444fca.js"
@@ -17,8 +25,20 @@
       "js.map": [
         "/packs/js/new_transaction-a10625c6f836c9444fca.js.map"
       ]
+    },
+    "new_user": {
+      "js": [
+        "/packs/js/new_user-1257fc35382b45ffa330.js"
+      ],
+      "js.map": [
+        "/packs/js/new_user-1257fc35382b45ffa330.js.map"
+      ]
     }
   },
+  "new_session.js": "/packs/js/new_session-f792b4e06a9af5a23cd3.js",
+  "new_session.js.map": "/packs/js/new_session-f792b4e06a9af5a23cd3.js.map",
   "new_transaction.js": "/packs/js/new_transaction-a10625c6f836c9444fca.js",
-  "new_transaction.js.map": "/packs/js/new_transaction-a10625c6f836c9444fca.js.map"
+  "new_transaction.js.map": "/packs/js/new_transaction-a10625c6f836c9444fca.js.map",
+  "new_user.js": "/packs/js/new_user-1257fc35382b45ffa330.js",
+  "new_user.js.map": "/packs/js/new_user-1257fc35382b45ffa330.js.map"
 }
