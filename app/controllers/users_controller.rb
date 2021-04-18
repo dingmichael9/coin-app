@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new({username: params[:username], balance: 10})
+        @user = User.new({username: params[:username], balance: 0})
 
         if @user.save
             flash[:success] = "Welcome to Coin App!"
