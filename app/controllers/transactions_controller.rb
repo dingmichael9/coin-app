@@ -21,6 +21,10 @@ class TransactionsController < ApplicationController
             flash.now[:error] = "You must enter a username"
             render :new
             return
+        elsif params[:transaction] == "0"
+            flash.now[:error] = "Cannot send 0 dollars"
+            render :new
+            return
         elsif params[:commit] == "Send" && User.find_by_username(session[:username]).balance < params[:transaction][:amount].to_f
             flash.now[:error] = "You don't have enough funds"
             render :new
