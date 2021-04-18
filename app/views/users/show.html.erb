@@ -25,11 +25,15 @@
 </div>
 
 <div class="side_nav">
+    <%= link_to root_path do %>
+        <%= image_tag "user_filled.png", class:"nav_top"%>
+    <% end %>
+
     <%= link_to transactions_path do %>
         <%= image_tag "time.png", class:"nav_top"%>
     <% end %>
 
     <%= link_to new_transaction_path do %>
-        <%= image_tag "piggy-bank.png", class:"nav_bottom" %>
+        <%= image_tag "coin.png", class:"nav_bottom" %>
     <% end %>
 </div>
