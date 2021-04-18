@@ -63,3 +63,32 @@
     text-decoration: none;
     font-family: arial;
 }
+
+.help_hover {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.help {
+    width: 40px;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    background-color: green;
+    color: #fff;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    right: 30px;
+    bottom: 28px;
+}
+
+  .help:hover + .tooltiptext {
+    visibility: visible;
+}
+
