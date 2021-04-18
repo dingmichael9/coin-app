@@ -9,7 +9,7 @@
 <%= form_with model: @transaction do |form| %>
     <div class="new_transaction_container">
 
-        <%= form.text_field :target_username, placeholder:"username" %>
+        <%= form.text_field :target_username, placeholder:"username", autocomplete:"off" %>
 
         <%= form.hidden_field :amount %>
 
