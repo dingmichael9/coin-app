@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// transaction history page 
 
 .transaction_history_container {
     display: flex;
@@ -76,6 +77,64 @@
     width: 95px;
 }
 
-#transaction_amount {
-    background-color: red;
+// new transaction page
+
+.new_transaction_container {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    margin: auto;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.number_input_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;    
+    height: 400px;
+}
+
+.amount_input {
+    width: 33.33%;
+    text-align: center;
+    display: flex;
+	align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+}
+
+.amount_display {
+    text-align: center;
+    color: white;
+    font-size: 48px;
+}
+
+.transaction_buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 225px;
+}
+
+.transaction_buttons input {
+    background-color: #2EB234;
+    color: white;
+    border: solid 2px white;
+    font-size: 20px;
+    width: 103px;
+    border-radius: 5px;
+}
+
+#transaction_target_username {
+    width: 180px;    
+    background-color: #2EB234;
+    border: 0px;
+    border-bottom: 2px solid white;
+    outline-width: 0;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 40px;
 }

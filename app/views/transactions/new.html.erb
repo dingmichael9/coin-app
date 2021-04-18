@@ -4,39 +4,49 @@
     </div>
 <% end %>   
 
+
+
 <%= form_with model: @transaction do |form| %>
-    <%= form.label :target_username %><br>
-    <%= form.text_field :target_username %><br>
+    <div class="new_transaction_container">
 
-    <%= form.hidden_field :amount %><br>
+        <%= form.text_field :target_username, placeholder:"username" %>
 
-    <br>
-    <div class="amount_display"></div>
-    <br>
+        <%= form.hidden_field :amount %>
 
-    <div class="number_input">1</div>
-    <div class="number_input">2</div>
-    <div class="number_input">3</div>
-    <div class="number_input">4</div>
-    <div class="number_input">5</div>
-    <div class="number_input">6</div>
-    <div class="number_input">7</div>
-    <div class="number_input">8</div>
-    <div class="number_input">9</div>
-    <div class="number_input">0</div>
+        <div class="amount_display">$0</div>
 
-    <div class="backspace"><</div>
+        <div class="number_input_container">
+            <div class="amount_input number_input">1</div>
+            <div class="amount_input number_input">2</div>
+            <div class="amount_input number_input">3</div>
+            <div class="amount_input number_input">4</div>
+            <div class="amount_input number_input">5</div>
+            <div class="amount_input number_input">6</div>
+            <div class="amount_input number_input">7</div>
+            <div class="amount_input number_input">8</div>
+            <div class="amount_input number_input">9</div>
+            <div class="amount_input decimal_point">.</div>            
+            <div class="amount_input number_input">0</div>
+            <div class="amount_input backspace"><</div>         
+        </div>
 
-    <div class="decimal_point">.</div>
+        <div class="transaction_buttons">
+            <%= form.submit 'Send' %>
+            <%= form.submit 'Request' %>
+        </div>
+    </div>
+<% end %>
 
-    <%= form.submit 'Send' %>
-    <%= form.submit 'Request' %>
-<% end %>    
 
-<br>
+<div class="side_nav">
+    <%= link_to root_path do %>
+        <%= image_tag "user.png", class:"nav_top"%>
+    <% end %>
 
-<%= link_to "Balance", root_path %>
+    <%= link_to transactions_path do %>
+        <%= image_tag "time.png", class:"nav_bottom" %>
+    <% end %>
+</div>
 
-<%= link_to "Transaction History", transactions_path %>
 
 <%= javascript_pack_tag 'new_transaction' %>

@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ body {
+    background-color: #2EB234;   
+    font-family: arial; 
+}
+
  /* Flash Message */
 .error {
     background-color: #F2DEDD;
@@ -50,3 +55,8 @@
     align-items: center;
     font-weight: bold;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 0.6; /* Firefox */
+  }
