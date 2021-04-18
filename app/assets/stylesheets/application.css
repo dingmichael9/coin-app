@@ -59,4 +59,10 @@
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 0.6; /* Firefox */
-  }
+}
+
+
+  ::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    position: absolute;
+}
