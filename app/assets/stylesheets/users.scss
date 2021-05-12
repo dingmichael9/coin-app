@@ -20,21 +20,21 @@
 }
 
 .nav_top {
-    height: 30px;
+    height: 40px;
 }
 
 .nav_bottom {
-    height: 30px;
+    height: 40px;
 }
 
 .side_nav {
     display: flex;
     justify-content: space-between;
-    width: 130px;
+    width: 180px;
     position: absolute;
     right: 50%;
-    margin-right: -65px;
-    top: 25px;
+    margin-right: -90px;
+    bottom: 25px;
 }
 
 .user_container {
@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 180px;
+    margin-top: 130px;
 }
 
 .hax {
@@ -68,7 +68,7 @@
 }
 
 .logout {
-    margin-bottom: 18px;
+    margin-bottom: 200px;
     color: white;
     text-decoration: none;
     font-family: arial;
