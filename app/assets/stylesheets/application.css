@@ -66,3 +66,7 @@
     visibility: hidden;
     position: absolute;
 }
+
+input {
+    -webkit-appearance: none;
+}
