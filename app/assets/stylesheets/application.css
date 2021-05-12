@@ -17,6 +17,7 @@
  body {
     background-color: #2EB234;   
     font-family: arial; 
+    height: 100vh;
 }
 
  /* Flash Message */
