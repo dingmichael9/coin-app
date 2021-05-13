@@ -36,7 +36,6 @@
     width: 100%;
     margin-bottom: 30px;
     margin-top: 125px;
-    // padding-left: 20%;
 }
 
 .past_body {
@@ -45,7 +44,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    // padding-left: 20%;
 }
 
 .transaction_row {
@@ -73,7 +71,7 @@
     margin-left: 10px;
 }
 
-.pending_right {
+.row_right {
     display: flex;
     align-items: center;
 }
