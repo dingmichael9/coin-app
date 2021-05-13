@@ -26,7 +26,7 @@
                     <% end %>
 
                     <% if transaction.sender.username == @current_user.username %>
-                        <%= link_to "Approve", transaction_path(:id => transaction.id), method: :patch, class:"approve" %>
+                        <%= link_to "Accept", transaction_path(:id => transaction.id), method: :patch, class:"approve" %>
                     <% else %>
                         <div class="placeholder"></div>
                     <% end %>
