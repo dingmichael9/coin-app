@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;    
     margin: auto;
-    justify-content: space-between;
     align-items: center;    
 }
 
@@ -58,6 +57,7 @@
 }
 
 .switch_login_register {
+    margin-top: 15px;
     margin-bottom: 18px;
     color: white;
     text-decoration: none;
@@ -67,7 +67,7 @@
 
 .help_hover {
     position: absolute;
-    bottom: 15px;
+    top: 15px;
     right: 15px;
 }
 
@@ -85,8 +85,8 @@
     padding-top: 5px;
     padding-bottom: 5px;
     position: absolute;
-    right: 30px;
-    bottom: 28px;
+    right: 24px;
+    top: 28px;
 }
 
   .help:hover + .tooltiptext {
