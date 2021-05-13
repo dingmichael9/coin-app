@@ -48,10 +48,11 @@
                 </div>
                 <div>
                     <% if transaction.sender.username == @current_user.username %>
-                        -<%= number_to_currency(transaction.amount) %>
+                        -<%= number_to_currency(transaction.amount) %>                    
                     <% else %>
-                        <%= number_to_currency(transaction.amount) %>
+                        <%= number_to_currency(transaction.amount) %>                        
                     <% end %>                    
+                    <div class="placeholder"></div>
                 </div>
             </div>
         <% end %>
