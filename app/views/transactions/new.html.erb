@@ -1,7 +1,9 @@
 <% flash.each do |name, message| %>
-    <div class=<%= name %>>
-        <%= message %>
-    </div>
+    <a href="/transactions/new">
+        <div class=<%= name %>>
+            <%= message %>
+        </div>
+    </a>    
 <% end %>   
 
 
